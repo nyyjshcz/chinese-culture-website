@@ -1,0 +1,146 @@
+/* 全局重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 应用容器 */
+.app-container {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* 导航栏核心：调整为 stretch 让子元素高度填满导航栏，去掉上下内边距 */
+.navigation-bar {
+    display: flex;
+    align-items: stretch; /* 关键：子元素高度和导航栏一致 */
+    justify-content: space-between;
+    gap: 0; /* 去掉元素间默认间距，让所有元素紧靠 */
+    padding: 0 2rem; /* 仅保留左右内边距，上下为0 */
+    background-color: #f0f2f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 4rem; /* 固定导航栏高度 */
+}
+
+/* 左侧容器：填满导航栏高度，按钮和Logo无间距 */
+.nav-left {
+    display: flex;
+    align-items: center; /* 内部元素垂直居中 */
+    gap: 0; /* 去掉Logo和按钮的间距，紧靠 */
+    height: 100%; /* 高度和导航栏一致 */
+}
+
+/* Logo 样式：调整内边距，和按钮紧靠 */
+.nav-logo {
+    font-size: 1.2rem;
+    font-weight: bold; /* Logo保持粗体 */
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 1rem; /* 仅左右内边距，上下填满导航栏 */
+    height: 100%; /* 高度填满导航栏 */
+    display: flex;
+    align-items: center; /* Logo文字垂直居中 */
+    transition: background-color 0.3s;
+}
+.nav-logo:hover {
+    background-color: #002f6d;
+    color: #fff;
+}
+
+/* 语言切换按钮：高度填满导航栏，无边框/圆角，紧靠导航栏 */
+.language-switch-button {
+    border: none; /* 去掉边框 */
+    border-radius: 0; /* 去掉圆角 */
+    background-color: transparent; /* 初始背景和导航栏一致 */
+    color: #333; /* 文字颜色 */
+    cursor: pointer;
+    transition: all 0.3s; /* 背景+文字过渡 */
+    padding: 0 1.2rem; /* 仅左右内边距，上下填满导航栏 */
+    height: 100%; /* 高度填满导航栏 */
+    font-size: 0.95rem; /* 按钮字体稍大，和导航链接统一 */
+    font-weight: 500; /* 按钮字体加粗，避免过细 */
+}
+
+/* 按钮hover：背景色改为#002f6d，文字变白（保证可读性） */
+.language-switch-button:hover {
+    background-color: #002f6d;
+    color: #ffffff; /* 文字变白，深色背景更清晰 */
+}
+
+/* 导航链接容器：高度填满导航栏 */
+.nav-links {
+    display: flex;
+    gap: 0; /* 链接间无间距，紧靠 */
+    flex: 1;
+    justify-content: center;
+    font-size: 1rem; /* 关键：导航链接字体从0.9rem调大到1rem，更清晰 */
+    height: 100%; /* 高度和导航栏一致 */
+    align-items: stretch; /* 链接高度填满容器 */
+}
+
+/* 导航链接：核心调整字体粗细+大小，hover时背景覆盖导航栏上下 */
+.nav-link {
+    text-decoration: none;
+    color: #555; /* 文字颜色 */
+    cursor: pointer;
+    transition: all 0.3s; /* 背景+文字过渡 */
+    padding: 0 1.2rem; /* 仅左右内边距，上下填满导航栏 */
+    height: 100%; /* 高度填满导航栏 */
+    display: flex;
+    align-items: center; /* 链接文字垂直居中 */
+    /* 关键修改：字体加粗（600为半粗，视觉舒适，不突兀） */
+    font-weight: 600;
+    /* 预留下划线位置，避免选中时位移 */
+    border-bottom: 2px solid transparent;
+}
+
+/* 导航链接hover：背景色改为#002f6d，文字变白 */
+.nav-link:hover {
+    background-color: #002f6d;
+    color: #ffffff;
+    font-weight: 600; /* hover时保持字体粗细 */
+}
+
+/* 核心：选中态导航链接的下划线样式 */
+.nav-link-active {
+    border-bottom: 2px solid #002f6d; /* 底部2px实线，颜色#002f6d */
+    color: #002f6d; /* 选中时文字默认色改为深蓝色，增强提示 */
+    font-weight: 600; /* 选中态保持加粗 */
+}
+/* 选中态链接hover时，下划线保留，背景和文字仍按原有规则 */
+.nav-link-active:hover {
+    border-bottom: 2px solid #002f6d; /* 强制保留下划线 */
+    background-color: #002f6d;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* 搜索图标：和按钮/链接保持一致的紧靠+悬浮变色效果 */
+.nav-search-icon {
+    font-size: 1.2rem;
+    color: #555;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 100%; /* 高度填满导航栏，上下无间距 */
+    display: flex;
+    align-items: center; /* 图标垂直居中 */
+    padding: 0 1.2rem; /* 和按钮/链接的左右内边距一致 */
+    transition: all 0.3s; /* 背景+图标颜色过渡 */
+    background-color: transparent; /* 初始背景透明 */
+}
+
+/* 搜索图标hover：背景色改为#002f6d，图标变白 */
+.nav-search-icon:hover {
+    background-color: #002f6d;
+    color: #ffffff; /* 图标变白，深色背景更清晰 */
+}
+
+/* 页面内容区 */
+Routes > div {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
