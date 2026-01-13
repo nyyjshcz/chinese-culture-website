@@ -1,7 +1,7 @@
 /* src/pages/Home.css */
 .home-container {
   /* 背景图路径 */
-  background-image: url(C:/programs/chinese_culture_website/public/images/the-great-wall.jpg);
+  background-image: url(../../public/images/the-great-wall.jpg);
   /* 核心：背景图覆盖全屏 */
   background-size: cover;
   background-position: center;
