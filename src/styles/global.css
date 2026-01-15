@@ -201,6 +201,7 @@ body {
 }
 
 /* 6. 通用文本样式 */
+/* 6. 通用文本样式 */
 .title-main {
     font-size: 2rem;
     font-weight: var(--font-weight-semibold);
@@ -212,6 +213,26 @@ body {
     font-size: var(--font-size-base);
     color: var(--text-secondary);
     line-height: 1.6;
+}
+
+/* 全局通用警告提示文字（可复用） */
+.text-tip-warning {
+    font-size: 2rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-primary);
+    /* 改为全局主文本色（黑色 #333），替代原红色 */
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* 7. 通用页面容器（适配非首页全屏布局） */
+.page-container {
+    min-height: calc(100vh - 4rem);
+    /* 适配导航栏高度 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-lg);
 }
 
 /* 间距变量（补充） */
