@@ -1,33 +1,72 @@
 /* src/pages/Home.css */
+/* 首页容器：完全全屏，无任何留白 */
 .home-container {
-  /* 背景图路径 */
-  background-image: url(../../public/images/the-great-wall.jpg);
-  /* 核心：背景图覆盖全屏 */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  /* 最小高度填满视口 */
-  min-height: 100vh;
-  /* 背景遮罩：提升文字可读性 */
-  background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.3);
-  /* 内容居中 */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* 文字样式 */
-  color: #ffffff;
-  text-align: center;
-  padding: 0 2rem;
+    /* 背景图路径（适配你的目录：src/pages → ../../public/images） */
+    background-image: url(../../public/images/the-great-wall.jpg);
+    /* 强制背景图覆盖整个容器（裁剪边缘也不留白） */
+    background-size: cover;
+    /* 背景图居中，保证视觉核心区域显示 */
+    background-position: center center;
+    /* 禁止重复平铺 */
+    background-repeat: no-repeat;
+    /* 关键：高度=100%视口高度，完全全屏 */
+    height: 100vh;
+    /* 关键：宽度=100%视口宽度，无左右留白 */
+    width: 100vw;
+    /* 强制去掉所有内边距 */
+    padding: 0 !important;
+    /* 强制去掉所有外边距 */
+    margin: 0 !important;
+    /* 背景遮罩（增强文字可读性） */
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* 内容垂直+水平居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* 确保容器层级正确 */
+    position: relative;
+    /* 去掉滚动条 */
+    overflow: hidden;
 }
 
-/* 可选：标题文字大小适配 */
-.home-container h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+/* 首页标题样式 */
+.home-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2.5rem;
 }
 
-.home-container p {
-  font-size: 1.2rem;
+/* 双按钮容器：水平排列+间距 */
+.home-btn-group {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* 首页按钮样式 */
+.btn-home-outline {
+    background-color: #ffffff;
+    color: #333333;
+    border: none;
+    border-radius: 999px;
+    /* 椭圆圆角 */
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-home-outline:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    /* hover上浮 */
 }

@@ -1,0 +1,224 @@
+/* src/styles/global.css */
+/* 1. 全局CSS变量 - 统一样式核心参数 */
+:root {
+    /* 颜色体系 */
+    --primary-color: #002f6d;
+    /* 主色 */
+    --primary-rgb: 0, 47, 109;
+    /* 主色RGB（用于透明度遮罩） */
+    --bg-color: #f0f2f5;
+    /* 页面背景色 */
+    --text-primary: #333;
+    /* 主要文本色 */
+    --text-secondary: #555;
+    /* 次要文本色 */
+    --white: #ffffff;
+    /* 白色 */
+
+    /* 字体体系 */
+    --font-main: "Microsoft YaHei", "Segoe UI", sans-serif;
+    /* 全局字体 */
+    --font-size-base: 1rem;
+    /* 基础字号（16px） */
+    --font-size-sm: 0.9rem;
+    /* 小号字号 */
+    --font-size-lg: 1.2rem;
+    /* 大号字号 */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+}
+
+/* 2. 基础重置 - 消除浏览器默认差异（关键：去掉body默认边距） */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    margin: 0 !important;
+    /* 强制去掉body默认8px边距 */
+    padding: 0 !important;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+/* 3. 通用容器 - 非首页内容居中（首页不用这个） */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+/* 4. 导航栏全局样式（不透明+hover变主色 → 去掉底部边框） */
+.navigation-bar {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 0;
+    padding: 0 var(--font-size-lg);
+    /* 核心：不透明白色背景（保留） */
+    background-color: #ffffff;
+    /* 👇 删除这行：去掉导航栏底部的边框线 */
+    /* border-bottom: 2px solid var(--primary-color); */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* 保留轻微阴影，维持视觉界限 */
+    width: 100%;
+    height: 4rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+/* 以下所有样式保持不变（hover变主色、选中态下划线都保留） */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 100%;
+}
+
+.nav-logo {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0 var(--font-size-sm);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.nav-logo:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.language-switch-button {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0 var(--font-size-base);
+    height: 100%;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+.language-switch-button:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0;
+    flex: 1;
+    justify-content: center;
+    font-size: var(--font-size-base);
+    height: 100%;
+    align-items: stretch;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0 var(--font-size-base);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-weight-semibold);
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-bottom: 2px solid transparent;
+}
+
+/* 选中态的下划线保留（仅针对当前激活的导航项） */
+.nav-link-active {
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: var(--font-weight-semibold);
+}
+
+.nav-link-active:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+.nav-search-icon {
+    font-size: var(--font-size-lg);
+    color: var(--primary-color);
+    cursor: pointer;
+    white-space: nowrap;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--font-size-base);
+    transition: all 0.3s;
+    background-color: transparent;
+}
+
+.nav-search-icon:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* 5. 通用按钮样式 */
+.btn {
+    border: none;
+    border-radius: var(--font-size-base);
+    padding: calc(var(--font-size-sm) * 1.2) var(--font-size-base);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background-color: rgba(var(--primary-rgb), 0.9);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 6. 通用文本样式 */
+.title-main {
+    font-size: 2rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    margin-bottom: var(--font-size-sm);
+}
+
+.text-body {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* 间距变量（补充） */
+:root {
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.2rem;
+    --spacing-lg: 2rem;
+    --radius-base: 4px;
+}
