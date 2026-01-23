@@ -1,35 +1,24 @@
-/* src/styles/global.css */
-/* 1. 全局CSS变量 - 统一样式核心参数 */
+/* src/styles/global.css - 全局主题与基础布局样式 */
+/* 1. 全局 CSS 变量（颜色、字体、尺寸） */
 :root {
-    /* 颜色体系 */
     --primary-color: #002f6d;
-    /* 主色 */
     --primary-rgb: 0, 47, 109;
-    /* 主色RGB（用于透明度遮罩） */
     --bg-color: #f0f2f5;
-    /* 页面背景色 */
     --text-primary: #333;
-    /* 主要文本色 */
     --text-secondary: #555;
-    /* 次要文本色 */
     --white: #ffffff;
-    /* 白色 */
 
     /* 字体体系 */
     --font-main: "Microsoft YaHei", "Segoe UI", sans-serif;
-    /* 全局字体 */
     --font-size-base: 1rem;
-    /* 基础字号（16px） */
     --font-size-sm: 0.9rem;
-    /* 小号字号 */
     --font-size-lg: 1.2rem;
-    /* 大号字号 */
     --font-weight-regular: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
 }
 
-/* 2. 基础重置 - 消除浏览器默认差异（关键：去掉body默认边距） */
+/* 2. 基础重置（去掉浏览器默认边距与字体差异） */
 * {
     margin: 0;
     padding: 0;
@@ -39,7 +28,6 @@
 
 body {
     margin: 0 !important;
-    /* 强制去掉body默认8px边距 */
     padding: 0 !important;
     background-color: var(--bg-color);
     color: var(--text-primary);
@@ -47,26 +35,22 @@ body {
     line-height: 1.5;
 }
 
-/* 3. 通用容器 - 非首页内容居中（首页不用这个） */
+/* 3. 通用内容容器（非首页页面使用） */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
 }
 
-/* 4. 导航栏全局样式（不透明+hover变主色 → 去掉底部边框） */
+/* 4. 顶部导航栏 */
 .navigation-bar {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     gap: 0;
     padding: 0 var(--font-size-lg);
-    /* 核心：不透明白色背景（保留） */
     background-color: #ffffff;
-    /* 👇 删除这行：去掉导航栏底部的边框线 */
-    /* border-bottom: 2px solid var(--primary-color); */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* 保留轻微阴影，维持视觉界限 */
     width: 100%;
     height: 4rem;
     position: absolute;
@@ -75,7 +59,6 @@ body {
     z-index: 999;
 }
 
-/* 以下所有样式保持不变（hover变主色、选中态下划线都保留） */
 .nav-left {
     display: flex;
     align-items: center;
@@ -148,7 +131,6 @@ body {
     border-bottom: 2px solid transparent;
 }
 
-/* 选中态的下划线保留（仅针对当前激活的导航项） */
 .nav-link-active {
     border-bottom: 2px solid var(--primary-color);
     color: var(--primary-color);
@@ -179,7 +161,7 @@ body {
     color: #ffffff;
 }
 
-/* 5. 通用按钮样式 */
+/* 5. 通用按钮 */
 .btn {
     border: none;
     border-radius: var(--font-size-base);
@@ -200,8 +182,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* 6. 通用文本样式 */
-/* 6. 通用文本样式 */
+/* 6. 通用文本 */
 .title-main {
     font-size: 2rem;
     font-weight: var(--font-weight-semibold);
@@ -215,27 +196,25 @@ body {
     line-height: 1.6;
 }
 
-/* 全局通用警告提示文字（可复用） */
+/* 全局提示类文本（占位和提示信息） */
 .text-tip-warning {
     font-size: 2rem;
     font-weight: var(--font-weight-semibold);
     color: var(--text-primary);
-    /* 改为全局主文本色（黑色 #333），替代原红色 */
     letter-spacing: 2px;
     text-align: center;
 }
 
-/* 7. 通用页面容器（适配非首页全屏布局） */
+/* 7. 通用页面容器（非首页内容垂直居中） */
 .page-container {
     min-height: calc(100vh - 4rem);
-    /* 适配导航栏高度 */
     display: flex;
     justify-content: center;
     align-items: center;
     padding: var(--spacing-lg);
 }
 
-/* 间距变量（补充） */
+/* 8. 间距变量补充 */
 :root {
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;

@@ -1,8 +1,6 @@
-// src/pages/Culture.jsx（纯JS结构，样式完全分离）
+// src/pages/Culture.jsx - 文化内容页占位
 import React from 'react';
-// 引入页面专属CSS
 import './Culture.css';
-// 无需引入global.css（已全局导入）
 
 const Culture = () => {
     return (
@@ -11,4 +9,5 @@ const Culture = () => {
         </div>
     );
 };
+
 export default Culture;

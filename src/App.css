@@ -1,12 +1,13 @@
-/* src/App.css */
+/* src/App.css - 应用级容器样式 */
 .app-container {
-  width: 100%;
-  min-height: 100vh;
-  padding: 0 !important;
-  margin: 0 !important;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 .page-content {
-  padding: var(--spacing-lg) 0;
-  min-height: calc(100vh - 4rem); /* 非首页内容区高度 */
+    padding: var(--spacing-lg) 0;
+    /* 非首页内容区域高度（减去导航栏） */
+    min-height: calc(100vh - 4rem);
 }
