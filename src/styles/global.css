@@ -66,6 +66,16 @@ body {
     height: 100%;
 }
 
+.menu-icon {
+    display: none; /* 默认隐藏，仅移动端显示 */
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+    margin-right: var(--spacing-sm);
+    padding: 0 var(--spacing-xs);
+}
+
 .nav-logo {
     font-size: var(--font-size-lg);
     font-weight: var(--font-weight-semibold);
@@ -159,6 +169,65 @@ body {
 .nav-search-icon:hover {
     background-color: var(--primary-color);
     color: #ffffff;
+}
+
+/* 9. 移动端适配 (Max Width: 768px) */
+@media screen and (max-width: 768px) {
+    /* 导航栏适配 */
+    .navigation-bar {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .menu-icon {
+        display: flex; /* 显示汉堡菜单图标 */
+    }
+
+    .nav-links {
+        display: none; /* 默认隐藏菜单 */
+        position: absolute;
+        top: 100%; /* 在导航栏下方 */
+        left: 0;
+        width: 100%;
+        height: auto;
+        background-color: #ffffff;
+        flex-direction: column;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: var(--spacing-sm) 0;
+    }
+
+    .nav-links.active {
+        display: flex; /* 展开菜单 */
+    }
+
+    .nav-link {
+        height: 3.5rem; /* 增加点击区域高度 */
+        justify-content: flex-start; /* 左对齐 */
+        padding-left: var(--spacing-lg);
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0; /* 分隔线 */
+    }
+    
+    .nav-link:hover, .nav-link-active:hover {
+        border-bottom: 1px solid #f0f0f0; /* 覆盖默认 hover border */
+    }
+
+    /* 调整容器内边距 */
+    .container, .page-container {
+        padding: var(--spacing-sm);
+    }
+    
+    /* 字体调整 */
+    :root {
+        --font-size-base: 0.95rem; /* 稍微减小基准字号 */
+    }
+
+    .text-tip-warning {
+        font-size: 1.5rem; /* 减小提示文字 */
+    }
+    
+    .title-main {
+        font-size: 1.6rem;
+    }
 }
 
 /* 5. 通用按钮 */

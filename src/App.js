@@ -1,6 +1,6 @@
 // src/App.js - 定义应用骨架、导航和路由
 import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaBars, FaTimes } from 'react-icons/fa';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Culture from './pages/Culture';
@@ -10,7 +10,7 @@ import Contact from './pages/Contact';
 import './App.css';
 
 // 顶部导航中的单个链接项
-const NavLinkItem = ({ to, children }) => {
+const NavLinkItem = ({ to, children, onClick }) => {
     const location = useLocation();
     const isActive = location.pathname === to || (to === '/home' && location.pathname === '/');
 
@@ -18,6 +18,7 @@ const NavLinkItem = ({ to, children }) => {
         <Link
             to={to}
             className={`nav-link ${isActive ? 'nav-link-active' : ''}`}
+            onClick={onClick}
         >
             {children}
         </Link>
@@ -52,10 +53,21 @@ function App() {
     };
 
     const [currentLanguage, setCurrentLanguage] = useState('en');
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // 切换中英文 / 西班牙文
     const switchLanguage = () => {
         setCurrentLanguage(currentLanguage === 'es' ? 'en' : 'es');
+    };
+
+    // 切换移动端菜单
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    // 关闭移动端菜单
+    const closeMenu = () => {
+        setIsMenuOpen(false);
     };
 
     return (
@@ -64,7 +76,10 @@ function App() {
                 {/* 顶部导航栏，悬浮在首页背景图上 */}
                 <nav className="navigation-bar">
                     <div className="nav-left">
-                        <Link to="/" className="nav-logo">
+                        <div className="menu-icon" onClick={toggleMenu}>
+                            {isMenuOpen ? <FaTimes /> : <FaBars />}
+                        </div>
+                        <Link to="/" className="nav-logo" onClick={closeMenu}>
                             {languagePack[currentLanguage].logoText}
                         </Link>
                         <button
@@ -75,20 +90,20 @@ function App() {
                         </button>
                     </div>
 
-                    <div className="nav-links">
-                        <NavLinkItem to="/home">
+                    <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+                        <NavLinkItem to="/home" onClick={closeMenu}>
                             {languagePack[currentLanguage].navigation.home}
                         </NavLinkItem>
-                        <NavLinkItem to="/culture">
+                        <NavLinkItem to="/culture" onClick={closeMenu}>
                             {languagePack[currentLanguage].navigation.culture}
                         </NavLinkItem>
-                        <NavLinkItem to="/language">
+                        <NavLinkItem to="/language" onClick={closeMenu}>
                             {languagePack[currentLanguage].navigation.language}
                         </NavLinkItem>
-                        <NavLinkItem to="/history">
+                        <NavLinkItem to="/history" onClick={closeMenu}>
                             {languagePack[currentLanguage].navigation.history}
                         </NavLinkItem>
-                        <NavLinkItem to="/contact">
+                        <NavLinkItem to="/contact" onClick={closeMenu}>
                             {languagePack[currentLanguage].navigation.contact}
                         </NavLinkItem>
                     </div>

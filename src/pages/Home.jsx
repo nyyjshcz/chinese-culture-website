@@ -7,13 +7,13 @@ const Home = ({ currentLang }) => {
     const homeText = {
         es: {
             title: 'CHINA UNA CULTURA LARGA',
-            btn1: 'Explorar',
-            btn2: 'Sobre nosotros'
+            exploreButtonText: 'Explorar',
+            aboutButtonText: 'Sobre nosotros'
         },
         en: {
             title: 'CHINA A LONG CULTURE',
-            btn1: 'Explore',
-            btn2: 'About Us'
+            exploreButtonText: 'Explore',
+            aboutButtonText: 'About Us'
         }
     };
 
@@ -25,8 +25,8 @@ const Home = ({ currentLang }) => {
             <h1 className="home-title">{text.title}</h1>
             {/* 首页操作按钮组 */}
             <div className="home-btn-group">
-                <button className="btn btn-home-outline">{text.btn1}</button>
-                <button className="btn btn-home-outline">{text.btn2}</button>
+                <button className="btn btn-home-outline">{text.exploreButtonText}</button>
+                <button className="btn btn-home-outline">{text.aboutButtonText}</button>
             </div>
         </div>
     );
