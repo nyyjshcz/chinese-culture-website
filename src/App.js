@@ -71,7 +71,7 @@ function App() {
     };
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <div className="app-container">
                 {/* 顶部导航栏，悬浮在首页背景图上 */}
                 <nav className="navigation-bar">
@@ -156,6 +156,16 @@ function App() {
                         )}
                     />
                 </Routes>
+                <footer className="site-footer">
+                    <div className="container">
+                        <span className="footer-text">
+                            © 2026 Longcong Cultural Team · Contributor: nyyjshcz · Repository:
+                            <a className="footer-link" href="https://github.com/nyyjshcz/chinese-culture-website" target="_blank" rel="noreferrer">
+                                github.com/nyyjshcz/chinese-culture-website
+                            </a>
+                        </span>
+                    </div>
+                </footer>
             </div>
         </BrowserRouter>
     );

@@ -291,3 +291,29 @@ body {
     --spacing-lg: 2rem;
     --radius-base: 4px;
 }
+
+/* 10. 页脚样式（展示个人署名与链接） */
+.site-footer {
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    padding: var(--spacing-sm) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.footer-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: var(--spacing-xs);
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
