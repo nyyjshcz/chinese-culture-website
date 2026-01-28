@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/chinese-culture-website/static/css/main.c19e2a98.css",
-    "main.js": "/chinese-culture-website/static/js/main.54c0b6f1.js",
+    "main.js": "/chinese-culture-website/static/js/main.aab8954d.js",
     "static/media/the-great-wall.jpg": "/chinese-culture-website/static/media/the-great-wall.90634a20f83179afecc9.jpg",
     "index.html": "/chinese-culture-website/index.html",
     "main.c19e2a98.css.map": "/chinese-culture-website/static/css/main.c19e2a98.css.map",
-    "main.54c0b6f1.js.map": "/chinese-culture-website/static/js/main.54c0b6f1.js.map"
+    "main.aab8954d.js.map": "/chinese-culture-website/static/js/main.aab8954d.js.map"
   },
   "entrypoints": [
     "static/css/main.c19e2a98.css",
-    "static/js/main.54c0b6f1.js"
+    "static/js/main.aab8954d.js"
   ]
 }
